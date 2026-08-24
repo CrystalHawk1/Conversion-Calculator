@@ -23,8 +23,7 @@ statement_generator("The Conversion Calculator", "-")
 
 # Display instructions if requested
 want_instructions = input("\nPress <enter> to read the instructions or any key to continue: ")
-if want_instructions == "":
-    instructions()
+if want_instructions == "":instructions()
 
 # Display instructions
 def instructions():
@@ -96,7 +95,7 @@ time_dict = {
 while True:
     statement_generator("Unit Converter", "-")
 
-# Get the amount and if it is "xxx" break
+# Get the amount and if "xxx" is entered, break
     amount = num_checker("\nPlease enter the amount to convert: ")
     if amount == "xxx":
         break
@@ -106,18 +105,18 @@ while True:
     to_unit = unit_checker("Enter the unit to convert to: ").lower()
 
     # Check which dictionary the unit is from and convert
-    if from_unit and to_unit in distance_dict:
+    if from_unit in distance_dict and to_unit in distance_dict:
         base_amount = amount * distance_dict[from_unit]
         answer = base_amount / distance_dict[to_unit]
         print(f"\nResult: {amount} {from_unit} = {answer} {to_unit}")
 
-    elif from_unit and to_unit in mass_dict:
+    elif from_unit in mass_dict and to_unit in mass_dict:
         # Convert to base unit (grams), then to target unit
         base_amount = amount * mass_dict[from_unit]
         answer = base_amount / mass_dict[to_unit]
         print(f"\nResult: {amount} {from_unit} = {answer} {to_unit}")
 
-    elif from_unit and to_unit in time_dict:
+    elif from_unit in time_dict and to_unit in time_dict:
         # Convert to base unit (seconds), then to target unit
         base_amount = amount * time_dict[from_unit]
         answer = base_amount / time_dict[to_unit]
