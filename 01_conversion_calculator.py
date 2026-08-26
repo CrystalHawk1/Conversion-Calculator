@@ -39,7 +39,7 @@ Instructions:
 Available Units:
 - Distance: mm, cm, m, km (millimetres, centimetres, metres, kilometres)
 - Mass: mg, g, kg, t (milligrams, grams, kilograms, tonnes)
-- Time: s, min, h, d (seconds, minutes, hours, days)
+- Time: s, min, h, d, y (seconds, minutes, hours, days, years)
     """
     )
 
@@ -85,10 +85,12 @@ mass_dict = {
     "t"  : 1000000.0,
 }
 time_dict = {
-    "s"   : 1.0,
-    "min" : 60.0,
-    "h"   : 3600.0,
-    "d"   : 86400.0,
+    "ms"  : 1/60000,
+    "s"   : 1/60,
+    "min" : 1.0,
+    "h"   : 60.0,
+    "d"   : 1440,
+    "y"   : 525600.0,
 }
 
 # Main loop
@@ -98,6 +100,7 @@ while True:
 # Get the amount and if "xxx" is entered, break
     amount = num_checker("\nPlease enter the amount to convert: ")
     if amount == "xxx":
+        
         break
 
     # Get the from_unit and to_unit
