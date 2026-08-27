@@ -2,6 +2,8 @@
 def statement_generator(statement, decoration):
     print(f"\n{decoration * 5} {statement} {decoration * 5}")
 
+statement_generator("The Conversion Calculator", "-")
+
 # Display instructions
 def instructions():
     statement_generator("Instructions", "-")
@@ -16,32 +18,13 @@ Instructions:
 Available Units:
 - Distance: mm, cm, m, km (millimetres, centimetres, metres, kilometres)
 - Mass: mg, g, kg, t (milligrams, grams, kilograms, tonnes)
-- Time: s, min, h, d (seconds, minutes, hours, days)
+- Time: ms, s, min, h, d, y (milliseconds, seconds, minutes, hours, days, years)
     """
     )
-statement_generator("The Conversion Calculator", "-")
 
 # Display instructions if requested
 want_instructions = input("\nPress <enter> to read the instructions or any key to continue: ")
 if want_instructions == "":instructions()
-
-# Display instructions
-def instructions():
-    statement_generator("Instructions", "-")
-    print(
-        """
-Instructions:
-- Enter the amount you want to convert.
-- Enter the unit you are converting from.
-- Enter the unit you want to convert to.
-- You can only convert within the same category (e.g., mass to mass).
-
-Available Units:
-- Distance: mm, cm, m, km (millimetres, centimetres, metres, kilometres)
-- Mass: mg, g, kg, t (milligrams, grams, kilograms, tonnes)
-- Time: s, min, h, d, y (seconds, minutes, hours, days, years)
-    """
-    )
 
 # Check that the input is in the dictionary
 def unit_checker(question):
